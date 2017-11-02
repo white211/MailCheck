@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.white.dao.GoodsDao">
+    <resultMap id="goodsMap" type="cn.white.entity.Goods">
+        <id property="goods_id" column="goods_id"></id>
+        <result property="goods_name" column="goods_name"></result>
+        <result property="goods_price" column="goods_price"></result>
+        <result property="goods_desc" column="goods_desc"></result>
+        <result property="goods_stock" column="goods_stock"></result>
+    </resultMap>
+    <insert id="saveGoods" parameterType="cn.white.entity.Goods">
+        INSERT INTO goods(goods_id,goods_name,goods_price,goods_desc,goods_stock)
+        VALUES (#{goods_id},#{goods_name},#{goods_price},#{goods_desc},#{goods_stock})
+    </insert>
+
+    <select id="selectGoods" resultMap="goodsMap">
+        SELECT * from goods
+    </select>
+</mapper>
